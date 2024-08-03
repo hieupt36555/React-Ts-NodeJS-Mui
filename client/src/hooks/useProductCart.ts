@@ -16,8 +16,6 @@ export function useProductCart() {
   const getCartUser = async () => {
     if (!user) return;
     const { data } = await axios.get(`/carts/user/${user._id}`);
-    // console.log("data");
-    // alert("hehe")
     setCart(data);
   };
 

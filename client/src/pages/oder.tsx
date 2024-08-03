@@ -11,7 +11,7 @@ import {
 
 import { useOder } from "src/contexts/oder";
 import { useProductOder } from "src/hooks/useProductOder";
-import { useEffect } from "react";
+// import { useEffect } from "react";
   
   const labels = ["Product", "Price", "Quantity", "Subtotal", ""];
   function Oder() {

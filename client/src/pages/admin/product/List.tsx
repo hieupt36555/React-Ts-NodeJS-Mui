@@ -22,7 +22,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ConfirmDialog from "src/components/ConfirmDialog";
-import Flash from "src/components/Flash";
 import { useLoading } from "src/contexts/loading";
 import { Product } from "src/types/Product";
 import Swal from "sweetalert2";
@@ -168,7 +167,6 @@ function AdminProductList() {
                 </TableCell>
                 <TableCell align="center">{product.price}</TableCell>
                 <TableCell align="center">{product.description}</TableCell>
-                {/* <TableCell align="right">{product.image}</TableCell> */}
                 <TableCell align="center">{product.category.name}</TableCell>
                 <TableCell align="center">
                   <Stack

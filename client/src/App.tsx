@@ -10,10 +10,10 @@ import Cart from "./pages/Cart";
 import Homepage from "./pages/Homepage";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/checkOut";
-import LoginPage from "./pages/test";
+// import LoginPage from "./pages/test";
 import PrivateRoute from "./components/PrivateRouter";
 import ShopList from "./pages/shop";
-import CheckoutPage from "./pages/test";
+// import CheckoutPage from "./pages/test";
 import Oder from "./pages/oder";
 
 const routeConfig = [

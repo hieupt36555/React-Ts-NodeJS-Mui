@@ -30,6 +30,8 @@ function ProductDetail() {
       setLoading(true);
       const { data } = await axios.get(`http://localhost:3000/products/${id}`);
       setProduct(data);
+      console.log(data);
+      
     } catch (error) {
       console.log(error);
     } finally {

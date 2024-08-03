@@ -1,11 +1,10 @@
 import { Badge, Box, Icon, IconButton, Menu, MenuItem, Stack, styled, Typography } from "@mui/material";
-import { Button } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useCart } from "src/contexts/cart";
 import React, { useMemo } from "react";
-import { AccountCircle } from "@mui/icons-material";
+import Swal from "sweetalert2";
 
 const menus = [
   {
@@ -37,6 +36,45 @@ const Header = () => {
     setAnchorEl(null);
   };
 
+  const handleLogOut = () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "error",
+        title: "Chua Dang Nhap!"
+      });
+      return
+    }
+    
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Dang Xuat Thanh Cong!"
+    });
+  }
 
   const { cart } = useCart();
   // useMemo : return numberCart
@@ -93,7 +131,7 @@ const Header = () => {
           <MenuItem component={Link} to="/oder" onClick={handleClose}>Đơn Hàng</MenuItem>
           <MenuItem component={Link} to="/login" onClick={handleClose}>Đăng Nhập</MenuItem>
           <MenuItem component={Link} to="/register" onClick={handleClose}>Đăng Ký</MenuItem>
-          <MenuItem component={Link} to="/" >Đăng Xuất</MenuItem>
+          <MenuItem component={Link} to="/" onClick={handleLogOut} >Đăng Xuất</MenuItem>
         </Menu>
       </Stack>
     </Wrapper>

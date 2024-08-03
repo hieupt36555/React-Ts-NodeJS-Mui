@@ -26,7 +26,7 @@ function AdminProductEdit() {
   const onSubmit = async (values: ProductFormParams) => {
     try {
       await axios.put(`/products/${id}`, values);
-      nav("/admin/product/list");
+      nav("/admin");
     } catch (error) {}
   };
 
